@@ -1,10 +1,7 @@
 import { Client, handle_file } from "@gradio/client";
 import { listSpaces } from "@huggingface/hub";
 
-
-/****************************************************************************************
-Spaces configuration
-****************************************************************************************/
+ 
 const spaces = {
     sd3m: {
         label: "Stable Diffusion 3 Medium",
@@ -25,11 +22,7 @@ const spaces = {
         type: "mesh_builder"
     }
 }
-
-
-/****************************************************************************************
-Stream status of jobs
-****************************************************************************************/
+ 
 function streamStatus(status) {
 	// console.log(`The current status for this job is: ${JSON.stringify(status, null, 2)}`);
     console.log(`Job status: ${status.endpoint} > ${status.stage}`);
@@ -39,10 +32,7 @@ function streamStatus(status) {
     }
 }
 
-
-/****************************************************************************************
-Get space runtime
-****************************************************************************************/
+ 
 async function getSpaceRuntime(space_id) {
     const payload = {
         additionalFields: ['runtime'],
@@ -58,11 +48,7 @@ async function getSpaceRuntime(space_id) {
         }
     }
 }
-
-
-/****************************************************************************************
-Get spaces availability
-****************************************************************************************/
+ 
 export async function getSpacesAvailability() {
     let spaces_availability = [];
 
@@ -81,11 +67,7 @@ export async function getSpacesAvailability() {
 
     return spaces_availability;
 }
-
-
-/****************************************************************************************
-Generate image from prompt
-****************************************************************************************/
+ 
 export async function generateImage(
     api_key,
     prompt,
